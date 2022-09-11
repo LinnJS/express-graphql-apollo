@@ -11,6 +11,8 @@
     "dev": "lerna run dev --parallel",
     "build": "lerna run build --parallel",
     "start": "lerna run start --parallel",
+    "lint": "lerna run lint --parallel",
+    "lint:fix": "lerna run lint:fix --parallel",
     "build-server": "lerna bootstrap && cd server && npm run build",
     "build-client": "lerna bootstrap && cd client && npm run build",
     "graphql-deploy": "lerna run graphql-deploy",
@@ -33,7 +35,7 @@
     "nodejs",
     "express",
     "graphql",
-    "quries",
+    "quires",
     "mutations",
     "authentication",
     "auth",
@@ -41,13 +43,10 @@
     "client",
     "react",
     "hooks",
-    "subsriptions"
+    "subscriptions"
   ],
   "dependencies": {
-    "eslint": "^8.23.0",
-    "graphql": "^16.6.0",
     "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1"
+    "lint-staged": "^13.0.3"
   }
 }

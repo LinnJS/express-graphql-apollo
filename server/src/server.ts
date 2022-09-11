@@ -1,4 +1,4 @@
-import { ApolloServer, gql } from 'apollo-server-express';
+import { ApolloServer } from 'apollo-server-express';
 import compression from 'compression';
 import express, { Application } from 'express';
 import { PubSub } from 'graphql-subscriptions';

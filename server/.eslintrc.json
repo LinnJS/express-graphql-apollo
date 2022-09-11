@@ -9,11 +9,7 @@
     "sourceType": "module"
   },
   "plugins": ["@typescript-eslint"],
-  "extends": [
-    "eslint:recommended",
-    "prettier",
-    "plugin:@typescript-eslint/recommended"
-  ],
+  "extends": ["plugin:@typescript-eslint/recommended", "prettier"],
   "rules": {
     "indent": ["error", 2],
     "linebreak-style": ["error", "unix"],
@@ -22,5 +18,5 @@
     "comma-dangle": ["error", "always-multiline"],
     "max-len": ["error", { "code": 120 }]
   },
-  "ignorePatterns": ["src/interfaces/types.d.ts"]
+  "ignorePatterns": ["src/interfaces/types.d.ts", "./dist"]
 }
