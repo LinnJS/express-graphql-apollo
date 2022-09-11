@@ -1,0 +1,10 @@
+schema:
+  - './src/graphql/typeDefs/**/*.ts':
+      noRequire: true
+generates:
+  src/interfaces/types.d.ts:
+    plugins:
+      - "@graphql-codegen/typescript"
+      - "@graphql-codegen/typescript-resolvers"
+    config:
+      enumsAsTypes: true

@@ -1,0 +1,53 @@
+{
+  "name": "express-graphql-apollo",
+  "version": "0.1.0",
+  "description": "NodeJS Express server with GraphQL endpoint using Apollo & custom GraphQL client",
+  "main": "index.js",
+  "type": "module",
+  "author": "LinnJS <linnjsconsulting@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "lerna run dev --parallel",
+    "build": "lerna run build --parallel",
+    "start": "lerna run start --parallel",
+    "build-server": "lerna bootstrap && cd server && npm run build",
+    "build-client": "lerna bootstrap && cd client && npm run build",
+    "graphql-deploy": "lerna run graphql-deploy",
+    "postinstall": "lerna bootstrap",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^2.12.0",
+    "lerna": "^5.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LinnJS/express-graphql-apollo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LinnJS/express-graphql-apollo/issues"
+  },
+  "homepage": "https://github.com/LinnJS/express-graphql-apollo#readme",
+  "keywords": [
+    "nodejs",
+    "express",
+    "graphql",
+    "quries",
+    "mutations",
+    "authentication",
+    "auth",
+    "apollo",
+    "client",
+    "react",
+    "hooks",
+    "subsriptions"
+  ],
+  "dependencies": {
+    "eslint": "^8.23.0",
+    "graphql": "^16.6.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1"
+  }
+}
