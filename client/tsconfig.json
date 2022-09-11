@@ -14,15 +14,17 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "noUncheckedIndexedAccess": true
+    "noUncheckedIndexedAccess": true,
+    "rootDir": "./"
   },
+  "exclude": ["node_modules"],
   "include": [
+    "node_modules/@types",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "**/*.cjs",
     "**/*.mjs",
     "tailwind.config.js"
-  ],
-  "exclude": ["node_modules"]
+  ]
 }

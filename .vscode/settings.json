@@ -1,0 +1,11 @@
+{
+  "recommendations": ["bradlc.vscode-tailwindcss"],
+  "cSpell.words": [],
+  "javascript.format.enable": false,
+  "typescript.format.enable": false,
+  "editor.formatOnSave": true,
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "eslint.run": "onSave",
+  "eslint.validate": [ "javascript", "javascriptreact", "html", "typescriptreact" ],
+}

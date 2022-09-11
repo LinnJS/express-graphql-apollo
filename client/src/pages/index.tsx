@@ -1,7 +1,32 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { useQuery } from '@tanstack/react-query';
+import { request, gql } from 'graphql-request';
+
+const helloQuery = gql`
+  query {
+    hello
+  }
+`;
+
+const endpoint = 'http://localhost:8080/graphql';
+
+const usePosts = () => {
+  return useQuery(['hello'], async () => {
+    return  await request(
+      endpoint,
+      helloQuery,
+    );
+
+  });
+};
+
 
 const Home: NextPage = () => {
+  const { status, data, error, isFetching } = usePosts();
+
+  console.log({ status, data, error, isFetching });
+
   return (
     <>
       <Head>
@@ -10,43 +35,52 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container mx-auto flex flex-col items-center justify-center min-h-screen p-4">
-        <h1 className="text-5xl md:text-[5rem] leading-normal font-extrabold text-gray-700">
+      <main className="container mx-auto flex min-h-screen flex-col items-center justify-center p-4">
+        data: {data?.hello}
+
+        <h1 className="text-5xl font-extrabold leading-normal text-gray-700 md:text-[5rem]">
           Create <span className="text-purple-300">T3</span> App
         </h1>
+
         <p className="text-2xl text-gray-700">This stack uses:</p>
-        <div className="grid gap-3 pt-3 mt-3 text-center md:grid-cols-3 lg:w-2/3">
+
+        <section className="mt-3 grid gap-3 pt-3 text-center md:grid-cols-3 lg:w-2/3">
           <TechnologyCard
             name="NextJS"
             description="The React framework for production"
             documentation="https://nextjs.org/"
           />
+
           <TechnologyCard
             name="TypeScript"
             description="Strongly typed programming language that builds on JavaScript, giving you better tooling at any scale"
             documentation="https://www.typescriptlang.org/"
           />
+
           <TechnologyCard
             name="TailwindCSS"
             description="Rapidly build modern websites without ever leaving your HTML"
             documentation="https://tailwindcss.com/"
           />
+
           <TechnologyCard
             name="tRPC"
             description="End-to-end typesafe APIs made easy"
             documentation="https://trpc.io/"
           />
+
           <TechnologyCard
             name="Next-Auth"
             description="Authentication for Next.js"
             documentation="https://next-auth.js.org/"
           />
+
           <TechnologyCard
             name="Prisma"
             description="Build data-driven JavaScript & TypeScript apps in less time"
             documentation="https://www.prisma.io/docs/"
           />
-        </div>
+        </section>
       </main>
     </>
   );
@@ -66,11 +100,11 @@ const TechnologyCard = ({
   documentation,
 }: TechnologyCardProps) => {
   return (
-    <section className="flex flex-col justify-center p-6 duration-500 border-2 border-gray-500 rounded shadow-xl motion-safe:hover:scale-105">
+    <section className="flex flex-col justify-center rounded border-2 border-gray-500 p-6 shadow-xl duration-500 motion-safe:hover:scale-105">
       <h2 className="text-lg text-gray-700">{name}</h2>
       <p className="text-sm text-gray-600">{description}</p>
       <a
-        className="mt-3 text-sm underline text-violet-500 decoration-dotted underline-offset-2"
+        className="mt-3 text-sm text-violet-500 underline decoration-dotted underline-offset-2"
         href={documentation}
         target="_blank"
         rel="noreferrer"
