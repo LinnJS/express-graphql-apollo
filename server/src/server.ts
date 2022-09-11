@@ -1,10 +1,10 @@
-import { ApolloServer } from 'apollo-server-express';
+import { ApolloServer } from 'apollo-server';
 import compression from 'compression';
 import express, { Application } from 'express';
 import { PubSub } from 'graphql-subscriptions';
-import http from 'http';
 import { resolvers } from './graphql/resolvers';
 import { typeDefs } from './graphql/typeDefs';
+import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 
 /**
  * @constant PORT - the port the app will run on.
@@ -23,21 +23,16 @@ const server: ApolloServer = new ApolloServer({
   typeDefs: typeDefs,
   resolvers: resolvers,
   introspection: true,
+  plugins: [ApolloServerPluginLandingPageLocalDefault({ embed: true })],
 });
 
 app.use(compression());
-
-const httpServer = http.createServer(app);
-
-server.applyMiddleware({ app });
-
-server.installSubscriptionHandlers(httpServer);
 
 /**
  * @param {number} port -The port the app would run on.
  * The @constant PORT is defined above.
  */
-httpServer.listen({ URL, port: PORT }, (): void => {
-  console.log(`🚀 Server ready at https://${PORT}${server.subscriptionsPath}`);
-  console.log(`🚀 Subscriptions ready at ws://localhost:${PORT}${server.subscriptionsPath}`);
+// The `listen` method launches a web server.
+server.listen({ port: PORT }).then(({ url }) => {
+  console.log(`🚀  Server ready at ${url}`);
 });

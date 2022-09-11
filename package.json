@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.12.0",
-    "lerna": "^5.4.1"
+    "lerna": "^5.5.1"
   },
   "repository": {
     "type": "git",
