@@ -13,8 +13,8 @@
     "start": "lerna run start --parallel",
     "lint": "lerna run lint --parallel",
     "lint:fix": "lerna run lint:fix --parallel",
-    "build-server": "lerna bootstrap && cd server && npm run build",
-    "build-client": "lerna bootstrap && cd client && npm run build",
+    "build:server": "lerna bootstrap && cd server && npm run build",
+    "build:client": "lerna bootstrap && cd client && npm run build",
     "graphql-deploy": "lerna run graphql-deploy",
     "postinstall": "lerna bootstrap",
     "test": "echo \"Error: no test specified\" && exit 1"
