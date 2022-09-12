@@ -15,7 +15,10 @@
     "jsx": "preserve",
     "incremental": true,
     "noUncheckedIndexedAccess": true,
-    "rootDir": "./"
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "exclude": ["node_modules"],
   "include": [

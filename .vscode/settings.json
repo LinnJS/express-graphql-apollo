@@ -1,6 +1,8 @@
 {
   "recommendations": ["bradlc.vscode-tailwindcss"],
-  "cSpell.words": [],
+  "cSpell.words": [
+    "clsx"
+  ],
   "javascript.format.enable": false,
   "typescript.format.enable": false,
   "editor.formatOnSave": true,

@@ -1,3 +1,5 @@
+/** @type {import('next').NextConfig} */
+
 /**
  * Don't be scared of the generics here.
  * All they do is to give us autocompletion when using this.
@@ -17,5 +19,9 @@ export default defineNextConfig({
   i18n: {
     locales: ['en'],
     defaultLocale: 'en',
+  },
+  experimental: {
+    newNextLinkBehavior: true,
+    scrollRestoration: true,
   },
 });
