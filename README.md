@@ -1,4 +1,4 @@
-# Express Graphql Apollo with Custom GraphQL Client
+# Express GraphQL Apollo with Custom GraphQL Client
 
   This is a monorepo meant to be a proof of concept on a production ready GraphQL server built with Apollo Server and Express. It also includes a custom GraphQL client built with Apollo Client which will eventually be refactored into React Query as a experiment.
 
@@ -24,7 +24,7 @@
 ## Tooling for GraphQL Client
   - TypeScript
   - NextJS (React)
-  - Apollo Client (Refactoring to React Query later)
+  - React Query as the GraphQL Client and `graphql-request` as a transport layer
   - GraphQL Code Generators with TypeScript support
 
 ## Getting Started

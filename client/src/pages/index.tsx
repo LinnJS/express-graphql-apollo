@@ -2,6 +2,8 @@ import { useMemo } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { parse } from 'rss-to-json';
+import { useQuery } from '@tanstack/react-query';
+import { request, gql } from 'graphql-request';
 
 import { useAudioPlayer } from '@/components/AudioProvider';
 import { Container } from '@/components/Container';
@@ -96,7 +98,29 @@ function EpisodeEntry({ episode }: any) {
   );
 }
 
+const helloQuery = gql`
+  query {
+    hello
+  }
+`;
+
+const endpoint = 'http://localhost:8080/graphql';
+
+const usePosts = () => {
+  return useQuery(['hello'], async () => {
+    return  await request(
+      endpoint,
+      helloQuery,
+    );
+
+  });
+};
+
 export default function Home({ jobs }: any) {
+  const { status, data, error, isFetching } = usePosts();
+
+  console.log({ status, data, error, isFetching });
+
   return (
     <>
       <Head>
